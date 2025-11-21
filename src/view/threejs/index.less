@@ -1,0 +1,365 @@
+.whole {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+
+    #threejs {
+        width: 100%;
+        height: 100%;
+    }
+
+    .progress {
+        position: absolute;
+        top: calc(100vh / 2 - 15px);
+        left: 27.5vw;
+        width: 45vw;
+        display: flex;
+        flex-wrap: nowrap;
+        align-items: center;
+        z-index: 999;
+
+        .ant-progress-bg,
+        .ant-progress-inner,
+        .ant-progress-outer {
+            height: 5vh !important;
+
+        }
+
+        .ant-progress-inner {
+            box-shadow: 0 0 0.1vw 0.3vh #1890ff;
+        }
+
+        .ant-progress-text {
+            font-family: "Times New Roman", Times, serif;
+            font-weight: 600;
+            letter-spacing: 0.3vw !important;
+            font-size: 1.2vw !important;
+        }
+    }
+}
+
+#common {
+    margin: 10px 0px;
+}
+
+#button {
+    border-color: #1890ff;
+    box-shadow: 0 2px 0 #1890ff;
+    background: #1890ff;
+}
+
+#button:hover {
+    background: #1890ff !important;
+}
+
+.ant-modal {
+    top: 200px;
+}
+
+.ant-progress-text {
+    width: 100% !important;
+    display: flex !important;
+    align-items: center;
+    justify-content: center;
+    position: absolute !important;
+    z-index: 99 !important;
+    color: #363636 !important;
+    // margin-left: 300px !important;
+}
+
+.inspect {
+    position: absolute;
+    bottom: 12%;
+    // left: calc(80vw - 8.33vw);
+    right: 4.5%;
+    width: 16.66vw;
+    height: 4.25vh;
+    display: flex;
+    justify-content: space-between;
+
+    .common {
+        width: 7.3vw;
+        height: 100%;
+        background: url("../../assets/shouye/button.png");
+        background-size: 100% 100%;
+        color: #ffffff;
+        display: flex;
+        cursor: pointer;
+        display: flex;
+        flex-direction: row;
+        font-size: 0.7vw;
+        z-index: 999;
+        // justify-content: center;
+        // justify-items: center;
+
+        .return_icon {
+            background: url('../../assets/shouye/return.png') no-repeat;
+            width: 1.1vw;
+            height: 1.1vw;
+            margin-right: 1vh;
+            margin-left: 2vw;
+            background-size: 100% 100%;
+        }
+
+        .stop_icon {
+            background: url('../../assets/shouye/stop.png') no-repeat;
+            width: 1.1vw;
+            height: 1.1vw;
+            margin-right: 1vh;
+            margin-left: 2vw;
+            background-size: 100% 100%;
+        }
+
+        .continue_icon {
+            background: url('../../assets/shouye/continue.png') no-repeat;
+            width: 1.1vw;
+            height: 1.1vw;
+            margin-right: 1vh;
+            margin-left: 2vw;
+            background-size: 100% 100%;
+        }
+    }
+}
+
+// 巡检数据展示面板
+.inspectPanel {
+    position: absolute;
+    z-index: 200;
+    top: 20vh;
+    left: 25vw;
+    width: 50vw;
+    height: 60vh;
+    background: url('/src/assets/shouye/popupBg.png') no-repeat;
+    background-size: 100% 100%;
+    color: #fafafa;
+
+    .panelTitle {
+        width: 100%;
+        height: 10%;
+        margin-top: 1.4%;
+        font-size: 1.3vw;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-family: NotoSansHans-Medium;
+        letter-spacing: 0.2em;
+        color: #BBFFFF;
+    }
+
+    .panelData {
+        width: 95%;
+        margin-left: 2.5%;
+        height: 85%;
+        padding: 2% 0%;
+        display: flex;
+
+        .left {
+            width: 30%;
+            height: 100%;
+            border-right: 2px dashed rgb(74, 101, 136);
+
+            .describe {
+                width: 100%;
+                height: 90%;
+
+                overflow-y: auto;
+                font-size: 0.8vw;
+                text-indent: 1.5vw;
+                line-height: 1.5vw;
+                letter-spacing: 0.2vw;
+            }
+
+            .describe {
+                overflow-y: scroll;
+            }
+
+            .describe::-webkit-scrollbar {
+                width: 4px;
+            }
+
+            .describe::-webkit-scrollbar-thumb {
+                border-radius: 10px;
+                background: #0061AD;
+            }
+
+            .describe::-webkit-scrollbar-track {
+                border-radius: 0;
+                background: rgba(0, 0, 0, 0.1);
+            }
+
+            .segment {
+                width: 90%;
+                margin-left: 5%;
+                height: 6px;
+                background: url('/src/assets/shouye/segment.png') no-repeat;
+                background-size: 100% 100%;
+            }
+        }
+
+        .leftTitle,
+        .rightTitle {
+            width: 100%;
+            height: 6%;
+            font-size: 0.9vw;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            letter-spacing: 0.2em;
+            color: #BBFFFF;
+        }
+
+        .right {
+            width: 70%;
+            height: 100%;
+
+            .segment {
+                width: 96%;
+                margin-left: 2%;
+                height: 6px;
+                background: url('/src/assets/shouye/segment2.png') no-repeat;
+                background-size: 100% 100%;
+            }
+
+            .record {
+                width: 100%;
+                height: 93%;
+
+                .head,
+                .main {
+                    width: 100%;
+                    display: flex;
+                }
+
+
+                .head {
+                    height: 10%;
+                    font-size: 0.8vw;
+
+                    .row {
+                        width: 100%;
+                        height: 100%;
+                        display: flex;
+
+                        div {
+                            display: flex;
+                            justify-content: center;
+                            align-items: center;
+                            width: 50%;
+                            height: 100%;
+                        }
+                    }
+                }
+
+                .main {
+                    height: 100%;
+                    max-height: 100%;
+                    overflow-y: auto;
+                    flex-direction: column;
+
+                    .row {
+                        width: 100%;
+                        height: 10%;
+                        padding: 0.5% 5%;
+                        flex-shrink: 0;
+                        display: flex;
+                        flex-direction: row;
+
+                        div {
+                            font-size: 0.7vw;
+                            display: flex;
+                            justify-content: center;
+                            align-items: center;
+                            width: 50%;
+                            height: 100%;
+                            background: rgba(9, 107, 207, 0.2);
+                        }
+                    }
+
+                    .row:hover {
+                        div {
+                            cursor: pointer;
+                            background: rgba(9, 107, 207, 0.6);
+                        }
+                    }
+                }
+
+                .main {
+                    overflow-y: scroll;
+                }
+
+                .main::-webkit-scrollbar {
+                    width: 0.3vw;
+                }
+
+                .main::-webkit-scrollbar-thumb {
+                    border-radius: 10px;
+                    background: #0061AD;
+                }
+
+                .main::-webkit-scrollbar-track {
+                    border-radius: 0;
+                    background: rgba(0, 0, 0, 0.1);
+                }
+
+            }
+        }
+    }
+
+
+}
+
+.a-fadein {
+    -webkit-animation: 0.7s ease-in forwards;
+    -moz-animation: 0.7s ease-in forwards;
+    -ms-animation: 0.7s ease-in forwards;
+    animation: 0.7s ease-in forwards;
+}
+
+
+// 淡入
+.a-fadein {
+    -webkit-animation-name: fadein;
+    -moz-animation-name: fadein;
+    -ms-animation-name: fadein;
+    animation-name: fadein;
+}
+
+@-webkit-keyframes fadein {
+    0% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 1;
+    }
+}
+
+@-moz-keyframes fadein {
+    0% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 1;
+    }
+}
+
+@-ms-keyframes fadein {
+    0% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 1;
+    }
+}
+
+@keyframes fadein {
+    0% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 1;
+    }
+}

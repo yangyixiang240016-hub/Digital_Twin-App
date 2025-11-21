@@ -1,0 +1,14 @@
+"filename", "language", "Markdown", "vue", "Less", "HTTP", "JavaScript", "Python", "comment", "blank", "total"
+"c:\Users\59790\Desktop\污水处理厂源码\AAO 接口调用 - 联调.http", "HTTP", 0, 0, 0, 10, 0, 0, 1, 4, 15
+"c:\Users\59790\Desktop\污水处理厂源码\backend\services\trend_service.py", "Python", 0, 0, 0, 0, 0, 25, 8, 8, 41
+"c:\Users\59790\Desktop\污水处理厂源码\src\modules\router.js", "JavaScript", 0, 0, 0, 0, 5, 0, 0, 0, 5
+"c:\Users\59790\Desktop\污水处理厂源码\src\view\history\HistoryDataPage.vue", "vue", 0, 14, 0, 0, 0, 0, 0, 0, 14
+"c:\Users\59790\Desktop\污水处理厂源码\src\view\shouye\components\BaselineCard.vue", "vue", 0, -3, 0, 0, 0, 0, -1, -1, -5
+"c:\Users\59790\Desktop\污水处理厂源码\src\view\shouye\components\OfflineCard.vue", "vue", 0, -2, 0, 0, 0, 0, -1, -1, -4
+"c:\Users\59790\Desktop\污水处理厂源码\src\view\shouye\components\OnlineCard.vue", "vue", 0, -3, 0, 0, 0, 0, -1, -1, -5
+"c:\Users\59790\Desktop\污水处理厂源码\src\view\shouye\index.less", "Less", 0, 0, 79, 0, 0, 0, 1, 12, 92
+"c:\Users\59790\Desktop\污水处理厂源码\src\view\shouye\index.vue", "vue", 0, 13, 0, 0, 0, 0, 0, 1, 14
+"c:\Users\59790\Desktop\污水处理厂源码\src\view\trend\TrendPage.vue", "vue", 0, 329, 0, 0, 0, 0, 2, 41, 372
+"c:\Users\59790\Desktop\污水处理厂源码\src\view\trend\trend.less", "Less", 0, 0, 150, 0, 0, 0, 0, 18, 168
+"c:\Users\59790\Desktop\污水处理厂源码\项目文档.md", "Markdown", 611, 0, 0, 0, 0, 0, 0, 163, 774
+"Total", "-", 611, 348, 229, 10, 5, 25, 9, 244, 1481

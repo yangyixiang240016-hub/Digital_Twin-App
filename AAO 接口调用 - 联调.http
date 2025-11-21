@@ -1,0 +1,491 @@
+
+@url = http://192.168.3.91:8000
+
+
+###离线模拟(无参版）
+POST {{url}}/ManualSimulate/AAO/
+Content-Type: application/json
+
+{
+    "start_time": "2024-05-15 01:00:00",
+    "end_time": "2024-05-15 03:00:00",
+    "data_source": 1
+}
+
+###离线模拟(含参版）
+POST {{url}}/ManualSimulate/AAO/
+Content-Type: application/json
+
+{
+    "start_time": "2024-05-15 01:00:00",
+    "end_time": "2024-05-15 03:00:00",
+    "data_source": 1,
+    "opt1_aao_aer_fro_air_1":2200,
+    "opt1_aao_aer_mid_air_1":1100,
+    "opt1_aao_aer_bac_air_1":600,
+    "opt1_aao_aer_fro_air_2":2200,
+    "opt1_aao_aer_mid_air_2":1100,
+    "opt1_aao_aer_bac_air_2":600,
+    "opt1_aao_aer_fro_air_3":2200,
+    "opt1_aao_aer_mid_air_3":1100,
+    "opt1_aao_aer_bac_air_3":600,
+    "opt1_aao_aer_fro_air_4":2200,
+    "opt1_aao_aer_mid_air_4":1100,
+    "opt1_aao_aer_bac_air_4":600,
+    "opt1_aao_ras_flow_1":9000,
+    "opt1_aao_ras_flow_2":9000,
+    "opt1_aao_was_flow_1":120,
+    "opt1_aao_was_flow_2":120,
+    "opt1_aao_int_ref_flow_1":6250,
+    "opt1_aao_int_ref_flow_2":6250,
+    "opt1_aao_int_ref_flow_3":6250,
+    "opt1_aao_int_ref_flow_4":6250,
+    "opt1_aao_sel_inf_rat_1":0.1,
+    "opt1_aao_ana_inf_rat_1":0.3,
+    "opt1_aao_ano_inf_rat_1":0.6,
+    "opt1_aao_sel_inf_rat_2":0.1,
+    "opt1_aao_ana_inf_rat_2":0.3,
+    "opt1_aao_ano_inf_rat_2":0.6,
+    "opt1_aao_sel_inf_rat_3":0.1,
+    "opt1_aao_ana_inf_rat_3":0.3,
+    "opt1_aao_ano_inf_rat_3":0.6,
+    "opt1_aao_sel_inf_rat_4":0.1,
+    "opt1_aao_ana_inf_rat_4":0.3,
+    "opt1_aao_ano_inf_rat_4":0.6
+}
+
+
+###
+POST {{url}}/ManualSimulate/MBR/
+Content-Type: application/json
+
+{
+    "start_time": "2024-8-1 01:00:00",
+    "end_time": "2024-8-15 01:00:00",
+    "data_source": 1
+}
+
+###
+POST {{url}}/ManualSimulate/AAO_MBR/
+Content-Type: application/json
+
+{
+    "start_time": "2024-10-23 01:00:00",
+    "end_time": "2024-9-23 15:00:00",
+    "data_source": 1
+}
+
+###离线模拟强制终止
+GET  {{url}}/ManualSimulateStop/AAO/
+
+###
+GET  {{url}}/ManualSimulateStop/MBR/
+
+###
+GET  {{url}}/ManualSimulateStop/AAO_MBR/
+
+###离线模拟获取进度
+GET  {{url}}/ManualSimulateProgress/AAO/
+
+###
+GET  {{url}}/ManualSimulateProgress/AAO_MBR/
+
+###在线模拟(无参版）
+POST {{url}}/OnlineSimulate/AAO_MBR/
+Content-Type: application/json
+
+{
+	"data_source": 1,
+	"forecast_step": 6,
+	"frequency": 120
+}
+
+###在线模拟(含参版）
+POST {{url}}/OnlineSimulate/AAO_MBR/
+Content-Type: application/json
+
+{
+	"data_source": 1,
+	"forecast_step": 6,
+	"frequency": 120,
+    "opt1_aao_aer_fro_air_1":2200,
+    "opt1_aao_aer_mid_air_1":1100,
+    "opt1_aao_aer_bac_air_1":600,
+    "opt1_aao_aer_fro_air_2":2200,
+    "opt1_aao_aer_mid_air_2":1100,
+    "opt1_aao_aer_bac_air_2":600,
+    "opt1_aao_aer_fro_air_3":2200,
+    "opt1_aao_aer_mid_air_3":1100,
+    "opt1_aao_aer_bac_air_3":600,
+    "opt1_aao_aer_fro_air_4":2200,
+    "opt1_aao_aer_mid_air_4":1100,
+    "opt1_aao_aer_bac_air_4":600,
+    "opt1_aao_ras_flow_1":9000,
+    "opt1_aao_ras_flow_2":9000,
+    "opt1_aao_was_flow_1":120,
+    "opt1_aao_was_flow_2":120,
+    "opt1_aao_int_ref_flow_1":6250,
+    "opt1_aao_int_ref_flow_2":6250,
+    "opt1_aao_int_ref_flow_3":6250,
+    "opt1_aao_int_ref_flow_4":6250,
+    "opt1_aao_sel_inf_rat_1":0.1,
+    "opt1_aao_ana_inf_rat_1":0.3,
+    "opt1_aao_ano_inf_rat_1":0.6,
+    "opt1_aao_sel_inf_rat_2":0.1,
+    "opt1_aao_ana_inf_rat_2":0.3,
+    "opt1_aao_ano_inf_rat_2":0.6,
+    "opt1_aao_sel_inf_rat_3":0.1,
+    "opt1_aao_ana_inf_rat_3":0.3,
+    "opt1_aao_ano_inf_rat_3":0.6,
+    "opt1_aao_sel_inf_rat_4":0.1,
+    "opt1_aao_ana_inf_rat_4":0.3,
+    "opt1_aao_ano_inf_rat_4":0.6
+}
+
+###在线模拟(AAO无参版）
+POST {{url}}/OnlineSimulate/AAO/
+Content-Type: application/json
+
+{
+	"data_source": 1,
+	"forecast_step": 6,
+	"frequency": 120,
+}
+
+###在线模拟(AAO含参版）
+POST {{url}}/OnlineSimulate/AAO/
+Content-Type: application/json
+
+{
+	"data_source": 1,
+	"forecast_step": 6,
+	"frequency": 120,
+    "opt1_aao_aer_fro_air_1":2200,
+    "opt1_aao_aer_mid_air_1":1100,
+    "opt1_aao_aer_bac_air_1":600,
+    "opt1_aao_aer_fro_air_2":2200,
+    "opt1_aao_aer_mid_air_2":1100,
+    "opt1_aao_aer_bac_air_2":600,
+    "opt1_aao_aer_fro_air_3":2200,
+    "opt1_aao_aer_mid_air_3":1100,
+    "opt1_aao_aer_bac_air_3":600,
+    "opt1_aao_aer_fro_air_4":2200,
+    "opt1_aao_aer_mid_air_4":1100,
+    "opt1_aao_aer_bac_air_4":600,
+    "opt1_aao_ras_flow_1":9000,
+    "opt1_aao_ras_flow_2":9000,
+    "opt1_aao_was_flow_1":120,
+    "opt1_aao_was_flow_2":120,
+    "opt1_aao_int_ref_flow_1":6250,
+    "opt1_aao_int_ref_flow_2":6250,
+    "opt1_aao_int_ref_flow_3":6250,
+    "opt1_aao_int_ref_flow_4":6250,
+    "opt1_aao_sel_inf_rat_1":0.1,
+    "opt1_aao_ana_inf_rat_1":0.3,
+    "opt1_aao_ano_inf_rat_1":0.6,
+    "opt1_aao_sel_inf_rat_2":0.1,
+    "opt1_aao_ana_inf_rat_2":0.3,
+    "opt1_aao_ano_inf_rat_2":0.6,
+    "opt1_aao_sel_inf_rat_3":0.1,
+    "opt1_aao_ana_inf_rat_3":0.3,
+    "opt1_aao_ano_inf_rat_3":0.6,
+    "opt1_aao_sel_inf_rat_4":0.1,
+    "opt1_aao_ana_inf_rat_4":0.3,
+    "opt1_aao_ano_inf_rat_4":0.6
+}
+
+###
+POST {{url}}/OnlineSimulate/MBR/
+Content-Type: application/json
+
+{
+	"data_source": 1,
+	"forecast_step": 6,
+	"frequency": 120
+}
+
+###自动优化(负责基准模式下的AAO优化的开关）
+GET   {{url}}/OnlineAutoOptimizeStart/AAO/
+
+
+
+###
+GET   {{url}}/OnlineAutoOptimizeStart/MBR/
+
+
+###
+GET   {{url}}/OnlineAutoOptimizePause/AAO/
+
+###基准模拟
+POST {{url}}/BasicSchedule/AAO/
+Content-Type: application/json
+
+{
+
+}
+
+###基准模拟停止
+GET {{url}}/BasicScheduleStop/AAO/
+
+###
+POST {{url}}/BasicSchedule/MBR/
+Content-Type: application/json
+
+{
+
+}
+
+###
+GET {{url}}/BasicScheduleStop/MBR/
+
+###离线优化
+POST {{url}}/AutoOptimize/MBR/
+Content-Type: application/json
+
+{
+    "start_time": "2024-5-15 1:00:00",
+	"frequency": 120,
+    "end_time": "2024-5-16 1:00:00",
+    "PSO_iter":2,
+    "mpc_steps":2,
+    "size":2,
+    "mbr_config_name":"mbr_tn",
+    "optimize_algorithm_sp":"acpsoea"
+}
+
+###
+POST {{url}}/AutoOptimize/AAO/
+Content-Type: application/json
+
+{
+    "start_time": "2024-5-15 1:00:00",
+	"frequency": 120,
+    "end_time": "2024-5-15 3:00:00",
+    "PSO_iter":2,
+    "mpc_steps":3,
+    "size":3,
+    "aao_config_name":"wry_tn",
+    "optimize_algorithm_sp":"acpsoea"
+}
+
+###
+POST {{url}}/AutoOptimize/AAO_MBR/
+Content-Type: application/json
+
+{
+    "start_time": "2024-7-18 1:00:00",
+	"frequency": 120,
+    "end_time": "2024-7-18 3:00:00",
+}
+
+###
+GET  {{url}}/AutoOptimizeStop/AAO/
+
+###
+GET  {{url}}/AutoOptimizeStop/MBR/
+
+###
+GET  {{url}}/AutoOptimizeStop/AAO_MBR/
+
+###
+GET  {{url}}/AutoOptimizeProgress/AAO/
+
+###
+GET  {{url}}/AutoOptimizeProgress/AAO_MBR/
+
+###
+GET  {{url}}/LicenceCheck/
+
+
+###
+POST   {{url}}/InfluentSpan/
+Content-Type: application/json
+
+{
+    "start_time":"2022-07-07 01:00:00",
+    "simulate_time":1
+}
+
+###
+POST   {{url}}/OperatingSpan/
+Content-Type: application/json
+
+{
+    "start_time":"2022-07-07 01:00:00",
+    "simulate_time":1
+}
+
+###
+POST   {{url}}/EffluentSpan/
+Content-Type: application/json
+
+{
+    "start_time":"2022-07-07 01:00:00",
+    "simulate_time":1
+}
+
+###
+GET   {{url}}/ReadStrategy/
+
+###模型自校准
+POST   {{url}}/ModelSelfCalibration/AAO/
+Content-Type: application/json
+
+{
+}
+
+###模型自校准
+POST   {{url}}/ModelSelfCalibration/MBR/
+Content-Type: application/json
+
+{
+}
+
+###初始状态确定
+POST   {{url}}/StateIdentify/AAO/
+Content-Type: application/json
+
+{
+	"frequency": 120,
+    "tag":"scene_4",
+    "start_time": "2024-09-20 01:00:00",
+    "end_time": "2024-09-20 03:00:00"
+}
+
+###
+POST   {{url}}/StateIdentify/MBR/
+Content-Type: application/jsonx
+
+{
+	"frequency": 120,
+    "tag":"scene_4",
+    "end_time": "2024-5-30 1:00:00",
+    "mbr_state_identify_timeout_sp":5
+}
+
+###
+GET   {{url}}/StateIdentifyProgress/AAO/
+
+###
+GET   {{url}}/StateIdentifyStop/MBR/
+
+###
+POST   {{url}}/StableSimulate/AAO/
+Content-Type: application/json
+
+{
+
+}
+
+###稳态模拟
+POST   {{url}}/StableSimulate/MBR/
+Content-Type: application/json
+
+{
+
+}
+
+###
+POST   {{url}}/StableSimulate/AAO_MBR/
+Content-Type: application/json
+
+{
+
+}
+
+### 设置 AAO 基准模拟的参数（未确认）
+POST {{url}}/SetBasicSimulate/AAO/
+Content-Type: application/json
+Accept: application/json
+
+{
+  "aao_basic_simulate_ts": 1757954700,
+  "start_time": 1715734800,
+  "end_time": 1715742000,
+  "data_source": 1
+}
+
+###未测试通过
+GET   {{url}}/StateExist/AAO/
+
+
+### 数据清洗接口 
+POST {{url}}/DataHandle/
+Content-Type: application/json
+
+{
+  "start_time": "2025-05-24 19:00:00",
+  "end_time":   "2025-05-25 19:00:00",
+  "data_clean_algrithm": "pca_dbscan"
+}
+
+### 稳态模拟AAO传参数版
+POST   {{url}}/StableSimulate/AAO/
+Content-Type: application/json
+
+{
+    "opt1_aao_aer_bac_air_1": 600,
+    "opt1_aao_aer_bac_air_2": 600,
+    "opt1_aao_aer_bac_air_3": 600,
+    "opt1_aao_aer_bac_air_4": 600,
+    "opt1_aao_aer_fro_air_1": 2,
+    "opt1_aao_aer_fro_air_2": 2,
+    "opt1_aao_aer_fro_air_3": 2,
+    "opt1_aao_aer_fro_air_4": 2,
+    "opt1_aao_aer_mid_air_1": 1,
+    "opt1_aao_aer_mid_air_2": 1,
+    "opt1_aao_aer_mid_air_3": 1,
+    "opt1_aao_aer_mid_air_4": 1,
+    "opt1_aao_ana_inf_rat_1": 3,
+    "opt1_aao_ana_inf_rat_2": 3,
+    "opt1_aao_ana_inf_rat_3": 3,
+    "opt1_aao_ana_inf_rat_4": 3,
+    "opt1_aao_ano_inf_rat_1": 6,
+    "opt1_aao_ano_inf_rat_2": 6,
+    "opt1_aao_ano_inf_rat_3": 6,
+    "opt1_aao_ano_inf_rat_4": 6,
+    "opt1_aao_int_ref_flow_1": 6,
+    "opt1_aao_int_ref_flow_2": 6,
+    "opt1_aao_int_ref_flow_3": 6,
+    "opt1_aao_int_ref_flow_4": 6,
+    "opt1_aao_ras_flow_1": 9,
+    "opt1_aao_ras_flow_2": 9,
+    "opt1_aao_sel_inf_rat_1": 1,
+    "opt1_aao_sel_inf_rat_2": 1,
+    "opt1_aao_sel_inf_rat_3": 1,
+    "opt1_aao_sel_inf_rat_4": 1,
+    "opt1_aao_was_flow_1": 150,
+    "opt1_aao_was_flow_2": 150,
+    "sim_aao_1_inflow": 9000,
+    "sim_aao_tn": 13,
+    "sim_aao_tp": 1.7,
+    "sim_aao_nh3_n": 20,
+    "sim_aao_cod": 150,
+    "sim_aao_2_inflow": 9000,
+    "sim_aao_t": 20
+}
+
+### 离线预测
+POST {{url}}/IOForcast/AAO/
+Content-Type: application/json
+
+{
+    "start_time": "2025-11-19 15:00:00",
+    "end_time": "2025-11-19 15:00:00",
+    "forecast_step": 6,
+    "forecast_frequency": 10,
+    "need_train": 0,
+    "forecast_algorithm": "itransformer"
+}
+
+### 离线预测（前端调用版）
+POST {{url}}/IOForcast/AAO/
+Content-Type: application/json
+
+{
+    "start_time": "2025-11-19 15:00:00",
+    "end_time": "2025-11-19 15:00:00",
+    "forecast_step": 12,
+    "need_train": 0,
+    "forecast_algorithm": "itransformer"
+}
