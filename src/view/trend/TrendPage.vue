@@ -21,7 +21,7 @@
               class="offline-predict-btn"
               @click="showOfflinePredictDialog = true"
             >
-              离线预测
+              开始预测
             </button>
             <select v-model="param" class="param-select">
               <option value="total_flow">总流量</option>

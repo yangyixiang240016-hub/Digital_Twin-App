@@ -29,11 +29,17 @@ export default defineConfig(({ mode }) => {
         "@": path.resolve(__dirname, "src"), // 将 '@' 映射到 'src' 目录
       },
     },
-    // ✅✅✅ 新增：代理配置
+
+    // 定义 Vue 特性标志，消除控制台警告
+    define: {
+      __VUE_PROD_HYDRATION_MISMATCH_DETAILS__: "false",
+    },
+
+    // 代理配置
     server: {
       proxy: {
         "/api": {
-          target: "http://192.168.3.51:8000", // ✅ Flask 运行地址
+          target: "http://192.168.3.51:8000", // Flask 运行地址
           changeOrigin: true,
           // 不重写路径，保持 /api 前缀
         },

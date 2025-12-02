@@ -1,195 +1,213 @@
 <template>
-  <div id="whole" ref="whole">
-    <!-- 页面阴影背景元素 -->
-    <div class="back fadein" ref="shadowBg"></div>
-    <!-- 标题 -->
-    <div class="header-container">
-      <div class="title">污水处理线智能数字孪生平台</div>
-    </div>
+  <div class="shouye-container">
+    <div id="whole" ref="whole">
+      <!-- 页面阴影背景元素 -->
+      <div class="back fadein" ref="shadowBg"></div>
+      <!-- 标题 -->
+      <div class="header-container">
+        <div class="title">污水处理线智能数字孪生平台</div>
+      </div>
 
-    <!-- 顶部欢迎信息 -->
-    <div class="top-info-bar">
-      <div class="welcome">欢迎您！<span class="user">超级管理员</span></div>
-      <div class="time-bar">
-        <img :src="calendarIcon" class="calendar-icon" />
-        <span>{{ currentTime }}</span>
-      </div>
-    </div>
-
-    <!-- 右上角按钮容器 -->
-    <div class="top-right-buttons">
-      <div class="mode-fixed-button" ref="modeBtnRef" @click="toggleModePanel">
-        模式
-      </div>
-      <div class="dept-fixed-button" ref="deptBtnRef" @click="toggleDeptPanel">
-        工艺
-      </div>
-      <div class="data-fixed-button" ref="dataBtnRef" @click="toggleDataPanel">
-        数据
-      </div>
-      <div class="report-fixed-button">报表</div>
-      <div
-        class="system-fixed-button"
-        ref="systemBtnRef"
-        @click="toggleSystemPanel"
-      >
-        系统
-      </div>
-    </div>
-
-    <!-- 模式面板 -->
-    <div class="mode-panel-fixed" ref="modePanelRef" v-if="showModePanel">
-      <div
-        class="mode-item"
-        :class="{ active: currentMode === 'baseline' }"
-        @click="selectMode('baseline')"
-      >
-        基准模式
-      </div>
-      <div
-        class="mode-item"
-        :class="{ active: currentMode === 'offline' }"
-        @click="selectMode('offline')"
-      >
-        离线模式
-      </div>
-      <div
-        class="mode-item"
-        :class="{ active: currentMode === 'online' }"
-        @click="selectMode('online')"
-      >
-        在线模式
-      </div>
-    </div>
-
-    <!-- 部门面板 -->
-    <div class="dept-panel-fixed" ref="deptPanelRef" v-if="showDeptPanel">
-      <div class="dept-list">
-        <div
-          v-for="dep in departments"
-          :key="dep.key"
-          class="dept-item"
-          :class="{ active: currentMode === dep.key }"
-          @click="selectDepartment(dep.key)"
-          title="点击切换到该部门"
-        >
-          {{ dep.label }}
+      <!-- 顶部欢迎信息 -->
+      <div class="top-info-bar">
+        <div class="welcome">欢迎您！<span class="user">超级管理员</span></div>
+        <div class="time-bar">
+          <img :src="calendarIcon" class="calendar-icon" />
+          <span>{{ currentTime }}</span>
         </div>
       </div>
-    </div>
 
-    <!-- 数据面板 -->
-    <div class="data-panel-fixed" ref="dataPanelRef" v-if="showDataPanel">
-      <div class="data-item" @click="selectDataOption('data-clean')">
-        数据清洗
+      <!-- 右上角按钮容器 -->
+      <div class="top-right-buttons">
+        <div
+          class="mode-fixed-button"
+          ref="modeBtnRef"
+          @click="toggleModePanel"
+        >
+          模式
+        </div>
+        <div
+          class="dept-fixed-button"
+          ref="deptBtnRef"
+          @click="toggleDeptPanel"
+        >
+          工艺
+        </div>
+        <div
+          class="data-fixed-button"
+          ref="dataBtnRef"
+          @click="toggleDataPanel"
+        >
+          数据
+        </div>
+        <div class="report-fixed-button">报表</div>
+        <div
+          class="system-fixed-button"
+          ref="systemBtnRef"
+          @click="toggleSystemPanel"
+        >
+          系统
+        </div>
       </div>
-    </div>
 
-    <!-- 系统面板 -->
-    <div class="system-panel-fixed" ref="systemPanelRef" v-if="showSystemPanel">
-      <div class="system-item" @click="selectSystemOption('system-params')">
-        系统参数
+      <!-- 模式面板 -->
+      <div class="mode-panel-fixed" ref="modePanelRef" v-if="showModePanel">
+        <div
+          class="mode-item"
+          :class="{ active: currentMode === 'baseline' }"
+          @click="selectMode('baseline')"
+        >
+          基准模式
+        </div>
+        <div
+          class="mode-item"
+          :class="{ active: currentMode === 'offline' }"
+          @click="selectMode('offline')"
+        >
+          离线模式
+        </div>
+        <div
+          class="mode-item"
+          :class="{ active: currentMode === 'online' }"
+          @click="selectMode('online')"
+        >
+          在线模式
+        </div>
       </div>
-      <div class="system-item" @click="selectSystemOption('params-settings')">
-        参数设置
+
+      <!-- 部门面板 -->
+      <div class="dept-panel-fixed" ref="deptPanelRef" v-if="showDeptPanel">
+        <div class="dept-list">
+          <div
+            v-for="dep in departments"
+            :key="dep.key"
+            class="dept-item"
+            :class="{ active: currentMode === dep.key }"
+            @click="selectDepartment(dep.key)"
+            title="点击切换到该部门"
+          >
+            {{ dep.label }}
+          </div>
+        </div>
       </div>
-    </div>
 
-    <!-- 数据清洗弹窗 -->
-    <DataCleanDialog
-      :visible="showDataCleanDialog"
-      @close="closeDataCleanDialog"
-      @success="onDataCleanSuccess"
-    />
+      <!-- 数据面板 -->
+      <div class="data-panel-fixed" ref="dataPanelRef" v-if="showDataPanel">
+        <div class="data-item" @click="selectDataOption('data-clean')">
+          数据清洗
+        </div>
+      </div>
 
-    <!-- 数据清洗效果图弹窗 -->
-    <DataCleanEffectDialog
-      :visible="showDataCleanEffectDialog"
-      :startTime="dataCleanStartTime"
-      :endTime="dataCleanEndTime"
-      :cleaningData="dataCleanData"
-      :rawData="rawData"
-      @close="closeDataCleanEffectDialog"
-    />
-
-    <!-- 系统参数弹窗 -->
-    <SystemParamsDialog
-      :visible="showSystemParamsDialog"
-      @close="closeSystemParamsDialog"
-    />
-
-    <!-- 参数设置弹窗 -->
-    <SimulationParamsSettingsDialog
-      :visible="showParamsSettingsDialog"
-      @close="closeParamsSettingsDialog"
-    />
-
-    <!-- 渲染卡片（保持现有 selectedMenu 的控制） -->
-    <component
-      v-if="activeComponent && selectedMenu === 'shouye'"
-      :is="activeComponent"
-    />
-
-    <!-- 底部按钮 -->
-    <div ref="bottomBut" class="button a-fadeinB">
+      <!-- 系统面板 -->
       <div
-        :class="selectedMenu === 'shouye' ? 'selected common' : 'common'"
-        @click="shouYeClick"
+        class="system-panel-fixed"
+        ref="systemPanelRef"
+        v-if="showSystemPanel"
       >
-        <img
-          src="../../assets/shouye/menu1.png"
-          style="margin-right: 3px"
-        />首页
+        <div class="system-item" @click="selectSystemOption('system-params')">
+          系统参数
+        </div>
+        <div class="system-item" @click="selectSystemOption('params-settings')">
+          参数设置
+        </div>
       </div>
-      <div class="common" @click="trendClick">
-        <img
-          src="../../assets/shouye/menu2.png"
-          style="margin-right: 3px"
-        />进出水趋势
+
+      <!-- 数据清洗弹窗 -->
+      <DataCleanDialog
+        :visible="showDataCleanDialog"
+        @close="closeDataCleanDialog"
+        @success="onDataCleanSuccess"
+      />
+
+      <!-- 数据清洗效果图弹窗 -->
+      <DataCleanEffectDialog
+        :visible="showDataCleanEffectDialog"
+        :startTime="dataCleanStartTime"
+        :endTime="dataCleanEndTime"
+        :cleaningData="dataCleanData"
+        :rawData="rawData"
+        @close="closeDataCleanEffectDialog"
+      />
+
+      <!-- 系统参数弹窗 -->
+      <SystemParamsDialog
+        :visible="showSystemParamsDialog"
+        @close="closeSystemParamsDialog"
+      />
+
+      <!-- 参数设置弹窗 -->
+      <SimulationParamsSettingsDialog
+        :visible="showParamsSettingsDialog"
+        @close="closeParamsSettingsDialog"
+      />
+
+      <!-- 渲染卡片（保持现有 selectedMenu 的控制） -->
+      <component
+        v-if="activeComponent && selectedMenu === 'shouye'"
+        :is="activeComponent"
+      />
+
+      <!-- 底部按钮 -->
+      <div ref="bottomBut" class="button a-fadeinB">
+        <div
+          :class="selectedMenu === 'shouye' ? 'selected common' : 'common'"
+          @click="shouYeClick"
+        >
+          <img
+            src="../../assets/shouye/menu1.png"
+            style="margin-right: 3px"
+          />首页
+        </div>
+        <div class="common" @click="trendClick">
+          <img
+            src="../../assets/shouye/menu2.png"
+            style="margin-right: 3px"
+          />进出水趋势
+        </div>
+        <div
+          :class="selectedMenu === 'data' ? 'selected common' : 'common'"
+          @click="historyDataClick"
+        >
+          <img
+            src="../../assets/shouye/menu2.png"
+            style="margin-right: 3px"
+          />历史数据
+        </div>
+        <div
+          :class="selectedMenu === 'craft' ? 'selected common' : 'common'"
+          @click="craftAssistClick"
+        >
+          <img
+            src="../../assets/shouye/menu3.png"
+            style="margin-right: 3px"
+          />工艺辅助
+        </div>
+        <div
+          :class="selectedMenu === 'inspect' ? 'selected common' : 'common'"
+          @click="inspectClick"
+        >
+          <img
+            src="../../assets/shouye/menu4.png"
+            style="margin-right: 3px"
+          />巡检
+        </div>
       </div>
-      <div
-        :class="selectedMenu === 'data' ? 'selected common' : 'common'"
-        @click="historyDataClick"
+      <!-- 工艺辅助 -->
+      <craftAssist
+        :visible="selectedMenu === 'craft' ? true : false"
+        @openAnimation="openAnimation"
       >
-        <img
-          src="../../assets/shouye/menu2.png"
-          style="margin-right: 3px"
-        />历史数据
-      </div>
-      <div
-        :class="selectedMenu === 'craft' ? 'selected common' : 'common'"
-        @click="craftAssistClick"
-      >
-        <img
-          src="../../assets/shouye/menu3.png"
-          style="margin-right: 3px"
-        />工艺辅助
-      </div>
-      <div
-        :class="selectedMenu === 'inspect' ? 'selected common' : 'common'"
-        @click="inspectClick"
-      >
-        <img
-          src="../../assets/shouye/menu4.png"
-          style="margin-right: 3px"
-        />巡检
-      </div>
+      </craftAssist>
     </div>
-    <!-- 工艺辅助 -->
-    <craftAssist
-      :visible="selectedMenu === 'craft' ? true : false"
-      @openAnimation="openAnimation"
-    >
-    </craftAssist>
+    <!-- 三维污水厂 -->
+    <sewageFactory
+      @closeInspect="closeInspect"
+      @craftAnimationEnd="craftAnimationEnd"
+      :craftAnimationStatus="craftAnimationStatus"
+      :craftAnimationType="craftAnimationType"
+      :selectedMenu="selectedMenu"
+    ></sewageFactory>
   </div>
-  <!-- 三维污水厂 -->
-  <sewageFactory
-    @closeInspect="closeInspect"
-    @craftAnimationEnd="craftAnimationEnd"
-    :craftAnimationStatus="craftAnimationStatus"
-    :craftAnimationType="craftAnimationType"
-    :selectedMenu="selectedMenu"
-  ></sewageFactory>
 </template>
 
 <script setup>
